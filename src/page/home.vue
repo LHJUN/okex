@@ -1,46 +1,7 @@
 <template>
   <el-row>
     <el-col :span="16" :offset="4">
-      <!-- Header AD-->
-      <el-row type="flex" class="ad-box header-ad-box">
-        <img src="../../static/img/ad/header_banner.png" class="ad-img header-ad-img"/>
-        <el-row class="ad-tips"><a href="#">广告</a></el-row>
-      </el-row>
-      <!-- Main -->
-      <el-row>
-        <el-col :span="19" class="left-box">
-          <el-row class="home-article">
-            <el-col :span="24">
-              <h1>宝贝名字 - 独特的想法和流行的2019年趋势</h1>
-            </el-col>
-            <el-col :span="24">
-              <p>欢迎来到Nameberry，这是世界上最大的专注于婴儿名字的网站。在这里，您可以找到女孩和男孩的宝宝名字。您可以搜索70,000个含有含义，来源和描述的名称; 浏览流行的婴儿名字和独特的婴儿名字，并与其他准父母和名字专家讨论名称。在Nameberry，您将获得2019年婴儿名称的最佳建议，并选择适合您和您孩子的名字。</p>
-            </el-col>
-            <el-col :span="24">
-              <el-row type="flex" class="article-content">
-                <el-col :span="12" class="article-img-box">
-                  <img :src="articleList[0].imgSrc"/>
-                  <p class="article-img-title"><a href="#">{{ articleList[0].title }}</a></p>
-                </el-col>
-                <el-col :span="12" class="article-list">
-                  <el-row type="flex" class="article-list-item" v-for="(article, articleIndex) in articleList.filter(a => articleList.indexOf(a) !== 0)" :key="article.title">
-                    <div class="article-list-item-img" :style="{ borderColor: articleItemImgStyle(articleIndex), backgroundImage: articleItemImgUrl(article.imgSrc) }"></div>
-                    <div class="article-list-item-content" :style="{ backgroundColor: articleItemContentStyle(articleIndex) }">
-                      <p class="article-list-item-title">{{ article.title }}</p>
-                    </div>
-                  </el-row>
-                </el-col>
-              </el-row>
-            </el-col>
-          </el-row>
-        </el-col>
-        <el-col :span="5" class="right-box">
-          <el-row type="flex" class="ad-box right-ad-box">
-            <img src="../../static/img/ad/right_banner.jpg" class="ad-img right-ad-img"/>
-            <el-row class="ad-tips"><a href="#">广告</a></el-row>
-          </el-row>
-        </el-col>
-      </el-row>
+
     </el-col>
   </el-row>
 </template>
