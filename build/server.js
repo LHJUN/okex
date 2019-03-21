@@ -5,20 +5,17 @@ if (!process.env.NODE_ENV) {
 }
 
 const opn = require('opn');
-const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const webpack = require('webpack');
 
 let server;
-const dbConn = require('./dbConn');
 const config = require('../config')[process.env.NODE_ENV];
 
 var webpackConfig = require(`./${config.webpackConfig}`);
@@ -28,8 +25,6 @@ var readyPromise = new Promise((resolve) => {
 });
 
 const startApp = async function() {
-  let dbConnection = await dbConn.init();
-
   // default port where dev server listens for incoming traffic
   var port = process.env.PORT || config.port;
   var uri = 'http://localhost:' + port;
@@ -61,14 +56,6 @@ const startApp = async function() {
     })
   );
 
-  var mongoStore = new MongoStore({
-    mongooseConnection: dbConnection,
-    url: 'mongodb://localhost:27017/mevn-stack',
-    touchAfter: 24 * 3600, // Updating the session only every 24 hours.
-    autoRemove: 'interval',
-    autoRemoveInterval: 30 // Removing expired sessions every 30 minutes.
-  });
-
   // Configure the 'session' middleware
   app.use(
     session({
@@ -78,8 +65,7 @@ const startApp = async function() {
       secret: 'mevn-stack-session-secret',
       cookie: {
         maxAge: 1000 * 60 * 60 * 2
-      },
-      store: mongoStore
+      }
     })
   );
 

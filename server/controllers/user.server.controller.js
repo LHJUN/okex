@@ -49,5 +49,5 @@ exports.resigt = async function (req,res) {
     }
     return res.json({status: 'success'});
   });
-  
+
 };

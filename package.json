@@ -1,9 +1,6 @@
 {
   "name": "mevn-stack",
   "version": "1.0.1",
-  "description": "mevn-stack",
-  "author": "Antony Zhang <antony.zhang@cargosmart.com>",
-  "license": "MIT",
   "private": true,
   "main": "build/server.js",
   "scripts": {
@@ -29,6 +26,7 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.3.1",
     "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
     "passport": "^0.4.0",
     "time-formater": "^1.0.1",
     "vue": "^2.2.6",
