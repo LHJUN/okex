@@ -1,22 +1,13 @@
-// 'use strict';
-//
-// const mongoose = require('mongoose');
-//
-// const UserSchema = new mongoose.Schema({
-//   displayName: String,
-//   username: {
-//     type: String,
-//     required: true,
-//     index: true,
-//     unique: true
-//   },
-//   password: {
-//     type: String,
-//     required: true
-//   },
-//   address: String
-// }, {
-//   timestamps: true
-// });
-//
-// mongoose.model('User', UserSchema);
+'use strict';
+
+const db = require('../utils/mysql');
+
+exports.list = function(callback) {
+  db.query('select * from users', function(err, rows) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    callback(err, rows)
+  });
+};
